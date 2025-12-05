@@ -1,0 +1,422 @@
+  :root {
+      --bg: #0f1116;
+      --sidebar: #151922;
+      --card: #1a1e27;
+      --text: #f1f5f9;
+      --muted: #9ca3af;
+      --green: #22c55e;
+      --blue: #3b82f6;
+      --orange: #f97316;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .logo {
+      text-align: center;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: var(--sidebar);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      
+    }
+      .sidebar {
+    position: fixed;      /* navbarni ekranga mahkamlash */
+    top: 0;               /* yuqoridan 0 px */
+    left: 0;              /* chapdan 0 px */
+    width: 250px;         /* navbar kengligi */
+    height: 100%;         /* butun balandlik */
+    z-index: 100;         /* content ustida chiqish */
+    background: rgba(21, 25, 34, 0.8); /* #151922 rang, 0.8 opacity */
+    backdrop-filter: blur(8px);        /* xiralashgan effekt */
+    -webkit-backdrop-filter: blur(8px);
+    border-right: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Main content uchun margin-left berish */
+  .content {
+    margin-left: 250px;   /* sidebar kengligi bilan bir xil */
+    padding: 20px;        /* ichki bo‘shliq */
+  }
+
+  .logo {
+    display: flex;          /* icon va matnni yonma-yon chiqaradi */
+    align-items: center;    /* vertikal markazlash */
+    gap: 10px;              /* icon va matn orasidagi masofa */
+    margin-bottom: 2rem;
+  }
+
+  .logo > img {
+    width: 50px;
+    height: 50px;           /* balandlikni belgilash tavsiya qilinadi */
+    border-radius: 10px;
+  }
+
+  .logo > div {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+    .sidebar nav a {
+      display: block;
+      color: var(--muted);
+      padding: 12px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+    .sidebar nav a.active, .sidebar nav a:hover {
+      background: var(--card);
+      color: var(--text);
+    }
+
+    .sidebar nav a:hover {
+    background-color: rgba(200, 200, 255, 0.1);
+    }
+
+    /* Content */
+    .content { flex: 1; padding: 24px; }
+
+
+
+    .topbar {
+      position: fixed;
+      background-color: #0f1116;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      left: 250px;
+      padding: 0 0px;   /* ichki bo‘sh joy */
+      /* display: flex; */
+      justify-content: center;
+      /* align-items: center; */
+      /* margin-bottom: 20px; */
+      transition: all 0.3s ease;
+      background: rgba(15, 17, 22, 0.9); /* #0f1116 rang, 0.9 opacity */
+      backdrop-filter: blur(15px); 
+    }
+    .topbar input {
+      flex: 1;
+      min-height: 45px;
+      min-width: 1110px;
+      margin-right: 12px;
+      padding: 10px;
+      border-radius: var(--radius);
+      border: none;
+      background: var(--card);
+      color: var(--text);
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 20px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .topbar input:focus {
+      outline: none;
+      box-shadow: 0 0 10px var(--blue, #3498db);
+      border-radius: 20px;
+    }
+
+
+    .search-btn {
+      padding: 15px 20px;
+      min-height: 45px;
+      border-radius: var(--radius);
+      border: none;
+      background: var(--card);
+      color: var(--bg);
+      background-color: var(--blue);
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+
+    .ads-grid {
+      padding-top: 67px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .ads-grid {
+    column-count: 3; /* nechta ustun bo‘lishini xohlaysiz */
+    column-gap: 1rem; /* ustunlar orasidagi bo‘shliq */
+}
+
+.ad-card {
+    display: inline-block; /* kerak column-count uchun */
+    width: 100%; /* ustun kengligi to‘liq bo‘lsin */
+    margin-bottom: 1rem;
+}
+
+
+.ads-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.ad-card {
+    width: calc(25% - 1rem); /* 3 ustun */
+    margin-bottom: 1rem;
+}
+
+    .ad-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .ad-card:hover { transform: translateY(-3px); }
+    .ad-card img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+    }
+    .ad-card h3 { margin-bottom: 4px; }
+    .ad-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 8px; }
+    .ad-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+    .badge {
+      border: none;
+      padding: 6px 10px;
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      color: white;
+      margin-top: 5px;
+    }
+
+    .edit-btn {
+      border: none;
+      padding: 6px 10px;
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      color: white;
+      background-color: var(--muted);
+      cursor: pointer;
+    }
+
+    .delete-btn {
+      border: none;
+      padding: 10px 30px;
+
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      color: white;
+      background-color: red;
+      cursor: pointer;
+    }
+
+    /* O'chirish tugmasi uchun */
+.delete-btn {
+    display: block;
+    width: 95%;
+    margin: 15px auto 0; /* pastga va o‘rtaga */
+    padding: 12px 0;
+    font-size: 1.1rem;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logoutBtn {
+  width:100%; 
+  padding:10px; 
+  background:#e74c3c; 
+  color:#fff; 
+  border:none; 
+  border-radius:5px; 
+  cursor:pointer
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+    
+    .green { background: var(--green); }
+    .blue { background: var(--blue); }
+    .orange { background: var(--orange); }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: var(--card);
+      padding: 20px;
+      border-radius: var(--radius);
+      width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .modal-content img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+    }
+    .close-btn {
+      background: crimson;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      float: right;
+    }
+
+    /* Categories page */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 65px;
+    }
+    .category-card {
+      background: var(--card);
+      padding: 30px;
+      text-align: center;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: 0.5s;
+    }
+    .category-card:hover { background: #222633; }
+
+
+    /* Add form */
+    /* Form container */
+  form {
+    background: var(--sidebar); /* biroz shisha effektli fon */
+    padding: 40px 35px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;   /* professional desktop uchun o‘rtacha kenglik */
+    width: 90%;         /* responsive uchun */
+    margin: 30px auto;  /* markazlashtirish */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5); /* yumshoq shadow */
+    backdrop-filter: blur(10px); /* frosted glass efekti */
+  }
+
+  /* Input, select, textarea */
+  form input, 
+  form select, 
+  form textarea {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  form input:focus, 
+  form select:focus, 
+  form textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px var(--blue, #3498db);
+    background-color: #222633;
+    border-radius: 20px;
+  }
+
+  /* Button */
+  form button {
+    background: linear-gradient(135deg, #5a9fff, #1e70ff);
+    color: white;
+    border: none;
+    padding: 14px 0;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+  
+
+  /* Textarea max-height */
+  form textarea {
+    min-height: 120px;
+    resize: vertical; /* foydalanuvchi o‘zi o‘zgartira oladi */
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    form {
+      width: 95%;
+      padding: 30px 20px;
+      gap: 18px;
+    }
+    form button {
+      font-size: 1rem;
+    }
+  }
+
+    /* Profile */
+    .profile {
+      text-align: center;
+    }
+    .profile img {
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .edit-profile {
+      display: block;
+    }
+    .profile button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--blue);
+      color: white;
+      cursor: pointer;
+    }
+    
+    .profile .menu {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .profile .menu button {
+      background: var(--card);
+      padding: 20px;
+    }
